@@ -15,10 +15,15 @@ RUN tar -jxvf atlas3.10.3.tar.bz2
 RUN tar -vxf lapack-3.4.0.tgz
 RUN tar -vxf SuiteSparse-4.5.3.tar.gz           #unzip them
 
+WORKDIR /opt/lapack-3.4.0
+RUN mv make.inc.example make.inc
+RUN make
+
 RUN export CVXOPT_SUITESPARSE_SRC_DIR=$(pwd)/SuiteSparse
 
 RUN mv cvxopt-master cvxopt  
 RUN mv ATLAS ATLAS3.10.3
+
 WORKDIR /opt/ATLAS3.10.3
 RUN mkdir Linux_C2D64SSE3
 WORKDIR /opt/ATLAS3.10.3/Linux_C2D64SSE3
