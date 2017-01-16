@@ -34,3 +34,5 @@ WORKDIR /opt/cvxopt
 RUN apt-get update
 RUN python setup.py install
 RUN apt-get install python-cvxopt
+
+EXPOSE 80
