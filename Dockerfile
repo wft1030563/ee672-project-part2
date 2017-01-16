@@ -1,4 +1,4 @@
- FROM ubuntu:14.04
+FROM ubuntu:14.04
 MAINTAINER Hason Tse <fon09181996@gmail.com>
 
 WORKDIR /opt
@@ -18,6 +18,8 @@ RUN tar -vxf SuiteSparse-4.5.3.tar.gz           #unzip them
 WORKDIR /opt/lapack-3.4.0
 RUN mv make.inc.example make.inc
 RUN make lapacklib
+
+WORKDIR /opt
 
 RUN export CVXOPT_SUITESPARSE_SRC_DIR=$(pwd)/SuiteSparse
 
