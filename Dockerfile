@@ -32,7 +32,7 @@ RUN mkdir Linux_C2D64SSE3
 
 #RUN ../configure -b 64 -D c -DPentiumCPS=2400 \--prefix=/home/whaley/lib/atlas \--with-netlib-lapack-tarfile=/home/whaley/dload/lapack-3.4.1.tgz
 #RUN make
-RUN make install
+RUN make atlaslib
 
 WORKDIR /opt/cvxopt
 RUN apt-get -y update
