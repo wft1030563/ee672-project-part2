@@ -3,7 +3,7 @@ MAINTAINER Hason Tse <fon09181996@gmail.com>
 
 WORKDIR /opt
 RUN apt-get update
-RUN apt-get install wget unzip cmake python-dev python-pip gfortran gcc   #install missed dev
+RUN apt-get install -y wget unzip cmake python-dev python-pip gfortran gcc   #install missed dev
 RUN wget https://github.com/cvxopt/cvxopt/archive/master.zip
 RUN wget https://sourceforge.net/projects/math-atlas/files/Stable/3.10.3/atlas3.10.3.tar.bz2
 RUN wget http://www.netlib.org/lapack/lapack-3.4.0.tgz
