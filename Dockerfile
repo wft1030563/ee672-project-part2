@@ -28,7 +28,7 @@ RUN mv ATLAS ATLAS3.10.3
 
 WORKDIR /opt/ATLAS3.10.3
 RUN mkdir Linux_C2D64SSE3
-WORKDIR /opt/ATLAS3.10.3/Linux_C2D64SSE3
+#WORKDIR /opt/ATLAS3.10.3/Linux_C2D64SSE3
 
 RUN ../configure -b 64 -D c -DPentiumCPS=2400 \--prefix=/home/whaley/lib/atlas \--with-netlib-lapack-tarfile=/home/whaley/dload/lapack-3.4.1.tgz
 RUN make build                                    # tune & build lib
