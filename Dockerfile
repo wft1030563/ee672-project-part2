@@ -35,9 +35,9 @@ RUN make
 
 WORKDIR /opt/cvxopt
 RUN apt-get -y update
-RUN apt-get -y remove libblas*
+
 RUN apt-get -y install python-cvxopt
 RUN apt-get -y remove libblas*
-RUN apt-get -y install python-cvxopt
+RUN apt-get -y install python-cvxopt              #make sure that no libblas* but don't remove cvxopt after removing libblas*
 
 EXPOSE 80
