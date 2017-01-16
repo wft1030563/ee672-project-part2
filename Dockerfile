@@ -38,5 +38,6 @@ RUN apt-get -y update
 RUN apt-get -y remove libblas*
 RUN apt-get -y install python-cvxopt
 RUN apt-get -y remove libblas*
+RUN apt-get -y install python-cvxopt
 
 EXPOSE 80
