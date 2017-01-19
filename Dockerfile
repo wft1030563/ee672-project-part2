@@ -20,7 +20,7 @@ RUN mv make.inc.example make.inc
 RUN make lapacklib
 
 WORKDIR /opt
-
+RUN mkdir atlas
 RUN export CVXOPT_SUITESPARSE_SRC_DIR=$(pwd)/SuiteSparse
 
 RUN mv cvxopt-master cvxopt  
@@ -34,11 +34,11 @@ RUN ../configure -b 64 -D c -DPentiumCPS=2400 \--prefix=/opt/atlas #--with-netli
 RUN make clean
 RUN make 
 
-WORKDIR /opt/cvxopt
-RUN apt-get -y update
+#WORKDIR /opt/cvxopt
+#RUN apt-get -y update
 
-RUN apt-get -y install python-cvxopt
-RUN apt-get -y remove libblas*
-RUN apt-get -y install python-cvxopt              #make sure that no libblas* but don't remove cvxopt after removing libblas*
+#RUN apt-get -y install python-cvxopt
+#RUN apt-get -y remove libblas*
+#RUN apt-get -y install python-cvxopt              #make sure that no libblas* but don't remove cvxopt after removing libblas*
 
 EXPOSE 80
