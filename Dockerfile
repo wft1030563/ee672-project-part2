@@ -12,15 +12,15 @@ RUN apt-get -y upgrade
 
 RUN unzip master.zip
 RUN tar -jxvf atlas3.10.3.tar.bz2
-RUN tar -vxf lapack-3.4.0.tgz
+#RUN tar -vxf lapack-3.4.0.tgz
 RUN tar -vxf SuiteSparse-4.5.3.tar.gz           #unzip them
 
-WORKDIR /opt/lapack-3.4.0
-RUN mv make.inc.example make.inc
-RUN make lapacklib
+#WORKDIR /opt/lapack-3.4.0
+#RUN mv make.inc.example make.inc
+#RUN make lapacklib
 
-WORKDIR /opt
-RUN mkdir atlas
+#WORKDIR /opt
+#RUN mkdir atlas
 RUN export CVXOPT_SUITESPARSE_SRC_DIR=$(pwd)/SuiteSparse
 
 RUN mv cvxopt-master cvxopt  
@@ -30,9 +30,13 @@ WORKDIR /opt/ATLAS3.10.3
 RUN mkdir Linux_C2D64SSE3
 WORKDIR /opt/ATLAS3.10.3/Linux_C2D64SSE3
 
-RUN ../configure -b 64 -D c -DPentiumCPS=2400 \--prefix=/opt/atlas #--with-netlib-lapack=/opt/lapack-3.4.0/liblapack.a
+RUN ../configure -b 64 -D c -DPentiumCPS=2400 --prefix=/opt/atlas --with-netlib-lapack-tarfile=/opt/lapack-3.4.0.tgz
 RUN make clean
-RUN make 
+RUN make build                                    # tune & build lib
+RUN make check                                    # sanity check correct answer
+RUN make ptcheck                                  # sanity check parallel
+RUN make time                                     # check if lib is fast
+RUN make install
 
 #WORKDIR /opt/cvxopt
 #RUN apt-get -y update
