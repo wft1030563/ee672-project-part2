@@ -30,7 +30,8 @@ WORKDIR /opt/ATLAS3.10.3
 RUN mkdir Linux_C2D64SSE3
 WORKDIR /opt/ATLAS3.10.3/Linux_C2D64SSE3
 
-RUN ../configure -b 64 -D c -DPentiumCPS=2400 \--prefix=/home/whaley/lib/atlas 
+RUN ../configure -b 64 -D c -DPentiumCPS=2400 \--prefix=/opt/atlas --with-netlib-lapack=/opt/lapack-3.4.0/liblapack.a
+RUN make clean
 RUN make 
 
 WORKDIR /opt/cvxopt
