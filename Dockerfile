@@ -51,7 +51,7 @@ RUN apt-get -y install python-dev liblapack-dev
 WORKDIR /opt
 RUN export CVXOPT_SUITESPARSE_SRC_DIR=$(pwd)/SuiteSparse
 WORKDIR /opt/cvxopt
-RUN python setup_new.py install
+#RUN python setup_new.py install
 
 #
 #RUN apt-get -y update
