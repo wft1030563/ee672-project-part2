@@ -18,7 +18,7 @@ RUN tar -vxf SuiteSparse-4.5.3.tar.gz           #unzip them
 WORKDIR /opt/lapack-3.4.0
 RUN wget https://github.com/wft1030563/ee672-project-part2/blob/master/make.inc.example1.zip?raw=true
 RUN unzip make.inc.example1.zip?raw=true
-RUN mv -y make.inc.example1 make.inc
+RUN mv make.inc.example1 make.inc
 RUN make lapacklib
 
 WORKDIR /opt
