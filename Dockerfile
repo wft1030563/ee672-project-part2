@@ -35,7 +35,7 @@ WORKDIR /opt/ATLAS3.10.3
 RUN mkdir Linux_C2D64SSE3
 WORKDIR /opt/ATLAS3.10.3/Linux_C2D64SSE3
 
-RUN ../configure -b 64 -D c -DPentiumCPS=2400 --prefix=/opt/atlas --with-netlib-lapack-tarfile=/opt/lapack-3.4.0.tgz
+RUN ../configure -b 64 -D c -DPentiumCPS=2400 --prefix=/opt/atlas #--with-netlib-lapack-tarfile=/opt/lapack-3.4.0.tgz
 RUN make clean
 RUN make build                                    # tune & build lib
 RUN make check                                    # sanity check correct answer
