@@ -46,7 +46,7 @@ RUN make install
 WORKDIR /opt/cvxopt
 RUN wget https://github.com/wft1030563/ee672-project-part2/blob/master/setup_new.py.zip?raw=true
 RUN unzip setup_new.py.zip?raw=true
-RUN apt-get install python-dev liblapack-dev
+RUN apt-get -y install python-dev liblapack-dev
 RUN python setup_new.py install
 
 #
