@@ -43,12 +43,14 @@ RUN make check                                    # sanity check correct answer
 RUN make time                                     # check if lib is fast
 RUN make install
 
-RUN export CVXOPT_SUITESPARSE_SRC_DIR=$(pwd)/SuiteSparse
-
 WORKDIR /opt/cvxopt
 RUN wget https://github.com/wft1030563/ee672-project-part2/blob/master/setup_new.py.zip?raw=true
 RUN unzip setup_new.py.zip?raw=true
 RUN apt-get -y install python-dev liblapack-dev
+
+WORKDIR /opt
+RUN export CVXOPT_SUITESPARSE_SRC_DIR=$(pwd)/SuiteSparse
+WORKDIR /opt/cvxopt
 RUN python setup_new.py install
 
 #
