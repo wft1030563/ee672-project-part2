@@ -21,6 +21,8 @@ RUN unzip make.inc.example1.zip?raw=true
 RUN mv make.inc.example1 make.inc
 RUN wget https://github.com/wft1030563/ee672-project-part2/blob/master/Makefile1.zip?raw=true
 RUN unzip Makefile1.zip?raw=true
+RUN rm Makefile
+RUN mv Makefile1 Makefile
 RUN make
 
 WORKDIR /opt
