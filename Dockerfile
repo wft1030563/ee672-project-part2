@@ -7,13 +7,13 @@ RUN apt-get install -y wget unzip cmake python-dev python-pip gfortran gcc   #in
 RUN wget https://github.com/cvxopt/cvxopt/archive/master.zip
 RUN wget https://sourceforge.net/projects/math-atlas/files/Stable/3.10.3/atlas3.10.3.tar.bz2
 RUN wget http://www.netlib.org/lapack/lapack-3.4.0.tgz
-#RUN wget http://faculty.cse.tamu.edu/davis/SuiteSparse/SuiteSparse-4.5.3.tar.gz     #download cvxopt,atlas,lapack,SuiteSparse
+RUN wget http://faculty.cse.tamu.edu/davis/SuiteSparse/SuiteSparse-4.5.3.tar.gz     #download cvxopt,atlas,lapack,SuiteSparse
 RUN apt-get -y upgrade
 
 RUN unzip master.zip
 RUN tar -jxvf atlas3.10.3.tar.bz2
 RUN tar -vxf lapack-3.4.0.tgz
-#RUN tar -vxf SuiteSparse-4.5.3.tar.gz           #unzip them
+RUN tar -vxf SuiteSparse-4.5.3.tar.gz           #unzip them
 
 WORKDIR /opt/lapack-3.4.0
 RUN wget https://github.com/wft1030563/ee672-project-part2/blob/master/make.inc.example1.zip?raw=true
@@ -26,7 +26,7 @@ RUN mv Makefile1 Makefile
 RUN make
 
 WORKDIR /opt
-#RUN export CVXOPT_SUITESPARSE_SRC_DIR=$(pwd)/SuiteSparse
+RUN export CVXOPT_SUITESPARSE_SRC_DIR=$(pwd)/SuiteSparse
 
 RUN mv cvxopt-master cvxopt  
 RUN mv ATLAS ATLAS3.10.3
@@ -46,8 +46,8 @@ RUN make install
 WORKDIR /opt/cvxopt
 RUN wget https://github.com/wft1030563/ee672-project-part2/blob/master/setup_new.py.zip?raw=true
 RUN unzip setup_new.py.zip?raw=true
-#RUN apt-get install python-dev liblapack-dev
-#RUN python setup_new.py install
+RUN apt-get install python-dev liblapack-dev
+RUN python setup_new.py install
 
 #
 #RUN apt-get -y update
