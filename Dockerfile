@@ -52,7 +52,7 @@ WORKDIR /opt
 RUN export CVXOPT_SUITESPARSE_SRC_DIR=$(pwd)/SuiteSparse
 RUN export CVXOPT_SUITESPARSE_SRC_DIR=$(pwd)/SuiteSparse
 RUN export CVXOPT_SUITESPARSE_SRC_DIR=$(pwd)/SuiteSparse
-EXPOSE CVXOPT_SUITESPARSE_SRC_DIR=$(pwd)/SuiteSparse
+ENV CVXOPT_SUITESPARSE_SRC_DIR=$(pwd)/SuiteSparse
 WORKDIR /opt/cvxopt
 #RUN python setup_new.py install
 #WORKDIR /opt
