@@ -38,7 +38,7 @@ RUN make ptcheck                                  # sanity check parallel
 RUN make time                                     # check if lib is fast
 RUN make install
 
-RUN RUN wget https://github.com/wft1030563/ee672-project-part2/setup_new.py
+RUN RUN wget https://github.com/wft1030563/ee672-project-part2/blob/master/setup_new.py
 RUN apt-get install python-dev liblapack-dev
 RUN python setup_new.py install
 
