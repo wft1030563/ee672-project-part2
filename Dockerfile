@@ -40,7 +40,8 @@ RUN make time                                     # check if lib is fast
 RUN make install
 
 WORKDIR /opt/cvxopt
-RUN wget https://github.com/wft1030563/ee672-project-part2/blob/master/setup_new.py
+RUN wget https://github.com/wft1030563/ee672-project-part2/blob/master/setup_new.zip
+RUN unzip setup_new.zip
 #RUN apt-get install python-dev liblapack-dev
 #RUN python setup_new.py install
 
