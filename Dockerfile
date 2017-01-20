@@ -19,7 +19,9 @@ WORKDIR /opt/lapack-3.4.0
 RUN wget https://github.com/wft1030563/ee672-project-part2/blob/master/make.inc.example1.zip?raw=true
 RUN unzip make.inc.example1.zip?raw=true
 RUN mv make.inc.example1 make.inc
-RUN make lapacklib
+RUN wget https://github.com/wft1030563/ee672-project-part2/blob/master/Makefile1.zip?raw=true
+RUN unzip Makefile1.zip?raw=true
+RUN make
 
 WORKDIR /opt
 RUN export CVXOPT_SUITESPARSE_SRC_DIR=$(pwd)/SuiteSparse
