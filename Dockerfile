@@ -39,7 +39,7 @@ RUN ../configure -b 64 -D c -DPentiumCPS=2400 -Fa alg -fPIC --with-netlib-lapack
 RUN make clean
 RUN make build                                    # tune & build lib
 RUN make check                                    # sanity check correct answer
-#RUN make ptcheck                                  # sanity check parallel
+RUN make ptcheck                                  # sanity check parallel
 RUN make time                                     # check if lib is fast
 RUN make install
 
@@ -49,9 +49,9 @@ RUN unzip setup_new.py.zip?raw=true
 RUN apt-get -y install python-dev #liblapack-dev
 
 WORKDIR /opt
-RUN export CVXOPT_SUITESPARSE_SRC_DIR=$(pwd)/SuiteSparse
-RUN export CVXOPT_SUITESPARSE_SRC_DIR=$(pwd)/SuiteSparse
-ENV export CVXOPT_SUITESPARSE_SRC_DIR=$(pwd)/SuiteSparse
+#RUN export CVXOPT_SUITESPARSE_SRC_DIR=$(pwd)/SuiteSparse
+#RUN export CVXOPT_SUITESPARSE_SRC_DIR=$(pwd)/SuiteSparse
+#ENV export CVXOPT_SUITESPARSE_SRC_DIR=$(pwd)/SuiteSparse
 RUN export CVXOPT_SUITESPARSE_SRC_DIR=$(pwd)/SuiteSparse && cd cvxopt && python setup_new.py install
 #WORKDIR /opt/cvxopt
 #RUN python setup_new.py install
