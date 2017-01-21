@@ -53,7 +53,7 @@ RUN unzip setup_new.py.zip?raw=true
 #RUN apt-get -y install python-dev 
 
 WORKDIR /opt
-RUN mv atlas aa
+#RUN mv atlas aa                            #rename it, can't work     it still work if you '#'this line
 RUN export CVXOPT_SUITESPARSE_SRC_DIR=$(pwd)/SuiteSparse && cd cvxopt && python setup_new.py install
 
 #just for backup--------------------------------------------------------------------------
