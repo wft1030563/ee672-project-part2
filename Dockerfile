@@ -52,8 +52,8 @@ RUN wget https://github.com/wft1030563/ee672-project-part2/blob/master/setup_new
 RUN unzip setup_new1.py.zip?raw=true
 #RUN apt-get -y install python-dev 
 
-#WORKDIR /opt
-#RUN export CVXOPT_SUITESPARSE_SRC_DIR=$(pwd)/SuiteSparse && cd cvxopt && python setup_new.py install
+WORKDIR /opt
+RUN export CVXOPT_SUITESPARSE_SRC_DIR=$(pwd)/SuiteSparse && cd cvxopt && python setup_new.py install
 
 #just for backup--------------------------------------------------------------------------
 #WORKDIR /opt/cvxopt
