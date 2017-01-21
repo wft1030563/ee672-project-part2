@@ -31,29 +31,29 @@ RUN make
 #RUN export CVXOPT_SUITESPARSE_SRC_DIR=$(pwd)/SuiteSparse
 
 #rename--------------------------------------------------------------------------------------------
-RUN mv cvxopt-master cvxopt  
-RUN mv ATLAS ATLAS3.10.3
+#RUN mv cvxopt-master cvxopt  
+#RUN mv ATLAS ATLAS3.10.3
 
 #ATLAS---------------------------------------------------------------------------------------------
-WORKDIR /opt/ATLAS3.10.3
-RUN mkdir Linux_C2D64SSE3
-WORKDIR /opt/ATLAS3.10.3/Linux_C2D64SSE3
-RUN ../configure -b 64 -D c -DPentiumCPS=2400 -Fa alg -fPIC --with-netlib-lapack-tarfile=/opt/lapack-3.4.0.tgz --prefix=/opt/atlas 
-RUN make clean
-RUN make build                                    # tune & build lib
-RUN make check                                    # sanity check correct answer
-RUN make ptcheck                                  # sanity check parallel
-RUN make time                                     # check if lib is fast
-RUN make install
+#WORKDIR /opt/ATLAS3.10.3
+#RUN mkdir Linux_C2D64SSE3
+#WORKDIR /opt/ATLAS3.10.3/Linux_C2D64SSE3
+#RUN ../configure -b 64 -D c -DPentiumCPS=2400 -Fa alg -fPIC --with-netlib-lapack-tarfile=/opt/lapack-3.4.0.tgz --prefix=/opt/atlas 
+#RUN make clean
+#RUN make build                                    # tune & build lib
+#RUN make check                                    # sanity check correct answer
+#RUN make ptcheck                                  # sanity check parallel
+#RUN make time                                     # check if lib is fast
+#RUN make install
 
 #CVXOPT------------------------------------------------------------------------------------------------
-WORKDIR /opt/cvxopt
-RUN wget https://github.com/wft1030563/ee672-project-part2/blob/master/setup_new.py.zip?raw=true
-RUN unzip setup_new.py.zip?raw=true
-RUN apt-get -y install python-dev 
+#WORKDIR /opt/cvxopt
+#RUN wget https://github.com/wft1030563/ee672-project-part2/blob/master/setup_new.py.zip?raw=true
+#RUN unzip setup_new.py.zip?raw=true
+#RUN apt-get -y install python-dev 
 
-WORKDIR /opt
-RUN export CVXOPT_SUITESPARSE_SRC_DIR=$(pwd)/SuiteSparse && cd cvxopt && python setup_new.py install
+#WORKDIR /opt
+#RUN export CVXOPT_SUITESPARSE_SRC_DIR=$(pwd)/SuiteSparse && cd cvxopt && python setup_new.py install
 
 #just for backup--------------------------------------------------------------------------
 #WORKDIR /opt/cvxopt
