@@ -46,13 +46,12 @@ RUN make install
 WORKDIR /opt/cvxopt
 RUN wget https://github.com/wft1030563/ee672-project-part2/blob/master/setup_new.py.zip?raw=true
 RUN unzip setup_new.py.zip?raw=true
-RUN apt-get -y install python-dev #liblapack-dev
+RUN apt-get -y install python-dev 
 
 WORKDIR /opt
-#RUN export CVXOPT_SUITESPARSE_SRC_DIR=$(pwd)/SuiteSparse
-#RUN export CVXOPT_SUITESPARSE_SRC_DIR=$(pwd)/SuiteSparse
-#ENV export CVXOPT_SUITESPARSE_SRC_DIR=$(pwd)/SuiteSparse
 RUN export CVXOPT_SUITESPARSE_SRC_DIR=$(pwd)/SuiteSparse && cd cvxopt && python setup_new.py install
+
+#just for backup--------------------------------------------------------------------------
 #WORKDIR /opt/cvxopt
 #RUN python setup_new.py install
 #WORKDIR /opt
@@ -65,5 +64,6 @@ RUN export CVXOPT_SUITESPARSE_SRC_DIR=$(pwd)/SuiteSparse && cd cvxopt && python 
 #RUN apt-get -y install python-cvxopt
 #RUN apt-get -y remove libblas*
 #RUN apt-get -y install python-cvxopt              #make sure that no libblas* but don't remove cvxopt after removing libblas*
+#backup-------------------------------------------------------------------------------------
 
 EXPOSE 80
